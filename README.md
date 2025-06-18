@@ -1,56 +1,34 @@
-# GRO Landing Page
+# Whisper Transcriber
 
-A modern landing page for GRO services in Saudi Arabia, built with Next.js and Tailwind CSS.
+A simple transcription tool using OpenAI's Whisper model.
 
-## Features
+## Setup
 
-- Responsive design
-- Modern UI components
-- Tailwind CSS styling
-- Next.js framework
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18.x or later
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
+1. Create a virtual environment (recommended):
 ```bash
-git clone https://github.com/yourusername/gro-landing-page.git
-cd gro-landing-page
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
 ```
 
 2. Install dependencies:
 ```bash
-npm install
+pip install -r requirements.txt
 ```
 
-3. Run the development server:
+## Usage
+
+Place your audio files in the `audio` directory and run:
 ```bash
-npm run dev
+python transcribe.py path/to/your/audio/file.m4a
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+The transcription will be saved in the `transcriptions` directory.
 
-### Building for Production
+## Supported Audio Formats
 
-```bash
-npm run build
-npm start
-```
-
-## Technologies Used
-
-- Next.js
-- React
-- Tailwind CSS
-- TypeScript
-- Lucide Icons
-
-## License
-
-This project is licensed under the MIT License. 
+- M4A
+- MP3
+- WAV
+- MP4
+- M4V
+- WEBM 

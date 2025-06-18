@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* HubSpot form custom styles */
+.hs-form-field input,
+.hs-form-field select,
+.hs-form-field textarea {
+  @apply bg-white/20 border border-white/30 text-white placeholder:text-white/70 h-12 rounded-lg px-4 w-full;
+}
+
+.hs-form-field label {
+  @apply text-white font-medium mb-2;
+}
+
+.hs-form-field {
+  @apply mb-4;
+}
+
+.hs-form input[type="submit"], .hs-form button[type="submit"] {
+  @apply w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 py-3 h-12 font-semibold rounded-lg transition cursor-pointer;
+}
+
+/* Swiper pagination bullets styling for client carousel */
+.swiper-pagination-bullet {
+  background: #d1d5db; /* Tailwind gray-300 */
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #fff;
+} 

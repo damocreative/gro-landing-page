@@ -15,6 +15,9 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
+import HubSpotScript from "@/components/hubspot-script"
+import ClientStoriesCarousel from "@/components/ClientStoriesCarousel";
+import ClientAdvantageCarousel from "../components/ClientAdvantageCarousel";
 
 export default function GROAuditLanding() {
   return (
@@ -40,29 +43,13 @@ export default function GROAuditLanding() {
           />
         </div>
 
-        <div className="relative container mx-auto px-4 py-20 lg:py-32 min-h-screen flex items-center">
+        <div className="relative container mx-auto px-4 pt-4 pb-20 lg:pt-8 lg:pb-32 min-h-screen flex items-center">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center w-full">
             <div className="relative order-2 lg:order-2">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold text-white mb-6">Quick Compliance Check</h3>
-                <div className="space-y-4">
-                  <Input
-                    placeholder="Your Name"
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/70 h-12"
-                  />
-                  <Input
-                    type="email"
-                    placeholder="Email Address"
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/70 h-12"
-                  />
-                  <Input
-                    placeholder="Company Name"
-                    className="bg-white/20 border-white/30 text-white placeholder:text-white/70 h-12"
-                  />
-                  <Button className="w-full bg-cyan-400 hover:bg-cyan-500 text-gray-900 py-3 h-12 font-semibold">
-                    Get My Risk Assessment
-                  </Button>
-                </div>
+                <div id="hubspot-form-container" className="text-left"></div>
+                <HubSpotScript />
               </div>
             </div>
 
@@ -81,7 +68,7 @@ export default function GROAuditLanding() {
                 may even result in <span className="text-cyan-400">fines or compliance penalties.</span>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 hidden">
                 <Button
                   size="lg"
                   className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 text-lg font-semibold"
@@ -136,12 +123,13 @@ export default function GROAuditLanding() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img
                   src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/info-media-img-03.webp"
                   alt="Business risk illustration"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,182,240,0)_0%,rgba(0,182,240,0.7)_100%)] pointer-events-none"></div>
               </div>
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold text-gray-900">1. The Risk</CardTitle>
@@ -155,12 +143,13 @@ export default function GROAuditLanding() {
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img
                   src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/accordion-img-03.webp"
                   alt="Business reality illustration"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,182,240,0)_0%,rgba(0,182,240,0.7)_100%)] pointer-events-none"></div>
               </div>
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold text-gray-900">2. The Reality</CardTitle>
@@ -175,12 +164,13 @@ export default function GROAuditLanding() {
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img
                   src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/advantage-img-05.webp"
                   alt="Business solution illustration"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,182,240,0)_0%,rgba(0,182,240,0.7)_100%)] pointer-events-none"></div>
               </div>
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold text-gray-900">3. The Solution</CardTitle>
@@ -196,67 +186,13 @@ export default function GROAuditLanding() {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 text-lg font-semibold">
-              Get My Risk Assessment
+            <Button
+              size="lg"
+              className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 text-lg font-semibold"
+              asChild
+            >
+              <a href="#hubspot-form-container">Get My Risk Assessment</a>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Pre-Audit Checklist Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <FileText className="w-4 h-4" />
-              Free Resource
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Download the Pre-Audit Checklist</h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Want to gauge your GRO risk profile before speaking with us? Download our quick checklist to spot the most
-              common issues across your <span className="text-cyan-500 font-semibold">Qiwa, Muqeem, Mudad</span>, and
-              other compliance platforms.
-            </p>
-            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 font-semibold">
-              <Download className="w-5 h-5 mr-2" />
-              Download the Checklist
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Story Section */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-white mb-12">From Our Clients</h2>
-            <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-sm border-l-4 border-l-blue-900">
-              <CardContent className="p-8 lg:p-12">
-                <div className="space-y-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                    <span className="text-4xl text-blue-900">"</span>
-                  </div>
-                  <blockquote className="text-xl lg:text-2xl text-gray-700 italic leading-relaxed">
-                    "We thought we could manage Saudi compliance from Dubai — but it quickly became overwhelming. TASC
-                    gave us clarity, speed, and peace of mind. Now, our HR team can focus on growth instead of
-                    government paperwork."
-                  </blockquote>
-
-                  <div className="space-y-4 text-gray-600 leading-relaxed">
-                    <p>
-                      A fast-growing company expanding into Saudi Arabia relied on their Dubai-based HR team to manage
-                      GRO and compliance processes remotely. Without local expertise, they ran into frequent delays —
-                      from stalled visa processing to confusion around GOSI and WPS registration.
-                    </p>
-                    <p>
-                      TASC stepped in with an on-ground GRO, resolved their government registrations, and took over all
-                      regulatory touchpoints. Today, the company is fully compliant, avoiding penalties, while their HR
-                      team focuses on what they do best: growing the business.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
@@ -311,16 +247,53 @@ export default function GROAuditLanding() {
               </div>
             </div>
             <div className="text-center mt-12">
-              <Button size="lg" className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 text-lg font-semibold">
-                Get My Risk Assessment
+              <Button
+                size="lg"
+                className="bg-cyan-400 hover:bg-cyan-500 text-gray-900 px-8 py-4 text-lg font-semibold"
+                asChild
+              >
+                <a href="#hubspot-form-container">Get My Risk Assessment</a>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why This Matters */}
-      <section className="py-16 bg-white">
+      {/* Pre-Audit Checklist Section (Hidden) */}
+      {/* 
+      <section className="py-16 bg-gradient-to-r from-gray-50 to-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <FileText className="w-4 h-4" />
+              Free Resource
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Download the Pre-Audit Checklist</h2>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              Want to gauge your GRO risk profile before speaking with us? Download our quick checklist to spot the most
+              common issues across your <span className="text-cyan-500 font-semibold">Qiwa, Muqeem, Mudad</span>, and
+              other compliance platforms.
+            </p>
+            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 font-semibold">
+              <Download className="w-5 h-5 mr-2" />
+              Download the Checklist
+            </Button>
+          </div>
+        </div>
+      </section>
+      */}
+
+      {/* Client Story Section */}
+      <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <ClientStoriesCarousel />
+          </div>
+        </div>
+      </section>
+
+{/* Why This Matters */}
+<section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Why This Matters</h2>
@@ -363,6 +336,118 @@ export default function GROAuditLanding() {
         </div>
       </section>
 
+      {/* The TASC Advantage Section */}
+      <section className="relative py-20 bg-gradient-to-br from-cyan-900/90 via-cyan-800/90 to-cyan-900/90 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/vision-bg.webp" alt="Riyadh skyline" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-cyan-900/70"></div>
+        </div>
+        <div className="relative container mx-auto px-4 z-10">
+          <div className="max-w-3xl mx-auto text-center text-white mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-cyan-300">The TASC Advantage</h2>
+            <p className="text-lg">
+              With over 200 professionals on the ground in Saudi Arabia and more than a decade of experience, TASC is your trusted partner in seamless market entry. Since 2018, we've helped hundreds of companies set up and grow their operations across the Kingdom. From licensing to legal compliance, from staffing to visas, we cover it all through our end-to-end solutions and our proprietary platform, Incorpify.
+            </p>
+          </div>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            {/* Image Slider */}
+            <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-1/2">
+              <div className="rounded-3xl overflow-hidden shadow-xl bg-white/10 backdrop-blur-sm">
+                <ClientAdvantageCarousel />
+              </div>
+            </div>
+            {/* Advantage List */}
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
+              <ul className="text-white space-y-8">
+                <li className="flex items-start gap-4">
+                  <img src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/vision-icon-01.png" alt="Local Expertise" className="w-12 h-12 object-contain" />
+                  <div>
+                    <h6 className="font-bold text-lg mb-1">Local Expertise</h6>
+                    <p className="text-white/90">With a team based in KSA since 2018, we understand local regulations, industries and business etiquette.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <img src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/vision-icon-02.png" alt="Dedicated Team" className="w-12 h-12 object-contain" />
+                  <div>
+                    <h6 className="font-bold text-lg mb-1">Dedicated Team</h6>
+                    <p className="text-white/90">Over 200 people in-country, including GROs, legal experts, HR professionals and PROs.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <img src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/vision-icon-03.png" alt="Incorpify Technology" className="w-12 h-12 object-contain" />
+                  <div>
+                    <h6 className="font-bold text-lg mb-1">Incorpify Technology</h6>
+                    <p className="text-white/90">Our tool reduces setup times by up to 40%, providing real-time status updates and automation.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <img src="https://tasc-business-setup-in-saudi-arabia.netlify.app/assets/img/vision-icon-04.png" alt="Full Lifecycle Support" className="w-12 h-12 object-contain" />
+                  <div>
+                    <h6 className="font-bold text-lg mb-1">Full Lifecycle Support</h6>
+                    <p className="text-white/90">We assist beyond incorporation with staffing, payroll, GRO services, renewals, and compliance.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          {/* Counters */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+            <div className="bg-cyan-800/80 rounded-2xl text-center text-white py-8 px-2">
+              <span className="block text-3xl font-bold text-cyan-300 mb-2">200</span>
+              <p className="mb-0 text-white/90">Team in Saudi Arabi</p>
+            </div>
+            <div className="bg-cyan-800/80 rounded-2xl text-center text-white py-8 px-2">
+              <span className="block text-3xl font-bold text-cyan-300 mb-2">3</span>
+              <p className="mb-0 text-white/90">Offices in KSA</p>
+            </div>
+            <div className="bg-cyan-800/80 rounded-2xl text-center text-white py-8 px-2">
+              <span className="block text-3xl font-bold text-cyan-300 mb-2">7</span>
+              <p className="mb-0 text-white/90">Years established in KSA</p>
+            </div>
+            <div className="bg-cyan-800/80 rounded-2xl text-center text-white py-8 px-2">
+              <span className="block text-3xl font-bold text-cyan-300 mb-2">150</span>
+              <p className="mb-0 text-white/90">Clients</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-10">Why Choose Us For GRO Services in Saudi Arabia?</h2>
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Building className="w-8 h-8 text-blue-900" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Truly Local Support</h3>
+                <p className="text-gray-600">Conflicting advice and long delays from providers who aren't truly local</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <AlertTriangle className="w-8 h-8 text-blue-900" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Up-to-date Compliance</h3>
+                <p className="text-gray-600">Missed updates on new labor reforms and Saudization changes</p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-blue-900" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Focus on Growth</h3>
+                <p className="text-gray-600">Compliance tasks pulling your team away from core business growth</p>
+              </div>
+            </div>
+            <p className="text-lg text-gray-700 mb-4">With <strong>18+ years of experience</strong> in the region, we know how to navigate the fine print. Our team handles every detail — from licences and visas to portal updates and renewals — so you stay compliant, avoid penalties, and move faster.</p>
+            <p className="text-lg text-gray-700">We don't just react to changes — we anticipate them. That means fewer surprises, smoother processes, and more time for your team to focus on what actually drives your business forward.</p>
+          </div>
+        </div>
+      </section>
+
+      
+
       {/* Final CTA with HubSpot Form */}
       <section className="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
         <div className="container mx-auto px-4">
@@ -374,11 +459,10 @@ export default function GROAuditLanding() {
               No commitment. No access required. Just a quick conversation to identify what's under the surface.
             </p>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-md mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-lg mx-auto">
               <h3 className="text-xl font-bold text-white mb-6">Book Your Risk Assessment</h3>
-              <div id="hubspot-form-container" className="text-left">
-                {/* HubSpot form will be injected here */}
-              </div>
+              <div id="hubspot-form-container-2" className="text-left"></div>
+              <HubSpotScript target="#hubspot-form-container-2" />
             </div>
           </div>
         </div>

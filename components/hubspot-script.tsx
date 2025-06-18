@@ -3,7 +3,11 @@
 import { useEffect } from "react"
 import Script from "next/script"
 
-export default function HubSpotScript() {
+interface HubSpotScriptProps {
+  target?: string
+}
+
+export default function HubSpotScript({ target = "#hubspot-form-container" }: HubSpotScriptProps) {
   useEffect(() => {
     const initializeForm = () => {
       // @ts-ignore
@@ -11,9 +15,9 @@ export default function HubSpotScript() {
         // @ts-ignore
         window.hbspt.forms.create({
           portalId: "20309062",
-          formId: "79767128-8f1c-45b3-81f2-d019b6176bda",
+          formId: "b90fc151-8d37-448f-b499-c72440ae44c2",
           region: "na1",
-          target: "#hubspot-form-container",
+          target,
         })
       }
     }
@@ -35,7 +39,7 @@ export default function HubSpotScript() {
       // Cleanup interval after 10 seconds
       setTimeout(() => clearInterval(checkHubSpot), 10000)
     }
-  }, [])
+  }, [target])
 
   return <Script src="//js.hsforms.net/forms/embed/v2.js" strategy="afterInteractive" />
 } 
