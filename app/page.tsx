@@ -31,6 +31,15 @@ export default function GROAuditLanding() {
           <div className="absolute inset-0 bg-black/75"></div>
         </div>
 
+        {/* Logo */}
+        <div className="relative container mx-auto px-4 pt-8">
+          <img
+            src="https://tascoutsourcing.sa/images/logo.svg"
+            alt="TASC Logo"
+            className="h-12 w-auto"
+          />
+        </div>
+
         <div className="relative container mx-auto px-4 py-20 lg:py-32 min-h-screen flex items-center">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center w-full">
             <div className="relative order-2 lg:order-2">
