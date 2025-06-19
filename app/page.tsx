@@ -37,7 +37,7 @@ export default function GROAuditLanding() {
         {/* Logo and Top Call */}
         <div className="relative container mx-auto px-4 pt-8 flex items-center justify-between">
           <img
-            src="https://tascoutsourcing.sa/images/logo.svg"
+            src="/TASC-logo-White.webp"
             alt="TASC Logo"
             className="h-12 w-auto"
           />
