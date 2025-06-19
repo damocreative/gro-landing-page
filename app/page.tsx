@@ -17,7 +17,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import HubSpotScript from "@/components/hubspot-script"
 import ClientStoriesCarousel from "@/components/ClientStoriesCarousel";
-import ClientAdvantageCarousel from "../components/ClientAdvantageCarousel";
+import ClientAdvantageCarousel from "@/components/ClientAdvantageCarousel";
 
 export default function GROAuditLanding() {
   return (
@@ -34,13 +34,21 @@ export default function GROAuditLanding() {
           <div className="absolute inset-0 bg-black/75"></div>
         </div>
 
-        {/* Logo */}
-        <div className="relative container mx-auto px-4 pt-8">
+        {/* Logo and Top Call */}
+        <div className="relative container mx-auto px-4 pt-8 flex items-center justify-between">
           <img
             src="https://tascoutsourcing.sa/images/logo.svg"
             alt="TASC Logo"
             className="h-12 w-auto"
           />
+          <a
+            href="tel:+966548300247"
+            className="text-sm flex items-center gap-1 hover:underline whitespace-nowrap"
+            style={{ textShadow: '0 1px 2px rgba(0,0,0,0.12)' }}
+          >
+            <span className="text-white">Call us for an immediate consultation:</span>
+            <span className="text-yellow-400 ml-1">+966 54830 0247</span>
+          </a>
         </div>
 
         <div className="relative container mx-auto px-4 pt-4 pb-20 lg:pt-8 lg:pb-32 min-h-screen flex items-center">
@@ -59,14 +67,23 @@ export default function GROAuditLanding() {
                 Compliance Risk Alert
               </div>
 
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                Is Your Compliance Putting Your <span className="text-cyan-400">Business at Risk?</span>
+              <h1 className="text-4xl lg:text-4xl font-bold leading-tight">
+              Don't risk your business in Saudi Arabia, get Govt. Portals & <span className="text-cyan-400">Compliance Risk Assessment done now</span>
               </h1>
 
               <p className="text-xl lg:text-2xl text-gray-200 leading-relaxed">
                 One missed policy or misaligned record could quietly block your hiring, payroll, or visa approvals — and
                 may even result in <span className="text-cyan-400">fines or compliance penalties.</span>
               </p>
+
+              <a
+                href="tel:+966548300247"
+                className="inline-flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-4 text-lg rounded shadow transition mb-2"
+                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.10)' }}
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                Call a GRO consultant now
+              </a>
 
               <div className="flex flex-col sm:flex-row gap-4 hidden">
                 <Button
